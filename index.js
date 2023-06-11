@@ -3,9 +3,10 @@ const app = express();
 const db = require('./config/db');
 app.use(express.json());
 db.connect();
-const flagRoutes = require('./routes/flagRoutes');
+const coffeeRoutes = require('./routes/coffeeRoutes');
 
-app.use("/flags", flagRoutes);
+
+app.use("/coffees", coffeeRoutes);
 
 app.listen(8080, () => {
     console.log('Server is running...');
