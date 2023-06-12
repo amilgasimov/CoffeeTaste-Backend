@@ -3,7 +3,7 @@ const coffeeController = require('../controllers/coffeeController');
 const { body } = require("express-validator");
 const validate = require("../middleware/Validation");
 
-router.get('/', coffeeController.getAll)
+router.get('/api/coffees', coffeeController.getAll)
 
 router.post(
     "/api/login",
