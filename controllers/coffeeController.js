@@ -22,7 +22,6 @@ const coffeeController = {
         try {
             const { username, password } = req.body;
 console.log(req.body);
-            // Check if the user already exists
             const existingUser = await User.findOne({ username });
             if (existingUser) {
                 return res.json({
@@ -33,9 +32,7 @@ console.log(req.body);
 
             // Create a new user
             const newUser = new User({ username, password });
-            // const salt = await bcrypt.genSalt(10);
-            // const hash = bcrypt.hash(newUser.password, salt);
-            // newUser.password = hash;
+
             await newUser.save();
 
             res.json({
@@ -52,7 +49,6 @@ console.log(req.body);
         try {
             const { username, password } = req.body;
 
-            // Find the user by email
             const user = await User.findOne({ username });
 
             if (!user) {
